@@ -10,7 +10,6 @@ export const getAllQuestions = async (req: Request, res: Response) => {
     });
     res.json({ data: questions });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -36,7 +35,6 @@ export const createQuestion = async (req: Request, res: Response) => {
     });
     res.json({ data: questionCreated });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -52,7 +50,6 @@ export const updateQuestion = async (req: Request, res: Response) => {
     });
     res.json({ data: questionUpdated });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -67,7 +64,6 @@ export const deleteQuestion = async (req: Request, res: Response) => {
     });
     res.json({ data: questionDeleted });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };

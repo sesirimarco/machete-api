@@ -6,7 +6,6 @@ export const getAllSubjects = async (req: Request, res: Response) => {
     const subjects = await prisma.subject.findMany();
     res.json({ data: subjects });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -31,7 +30,6 @@ export const createSubject = async (req: Request, res: Response) => {
     });
     res.json({ data: subjectCreated });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -46,7 +44,6 @@ export const updateSubject = async (req: Request, res: Response) => {
     });
     res.json({ data: subjectUpdated });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -60,7 +57,6 @@ export const deleteSubject = async (req: Request, res: Response) => {
     });
     res.json({ data: subjectDeleted });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };

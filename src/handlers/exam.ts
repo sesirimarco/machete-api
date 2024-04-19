@@ -10,7 +10,6 @@ export const getAllExams = async (req: Request, res: Response) => {
     });
     res.json({ data: exams });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -36,7 +35,6 @@ export const createExam = async (req: Request, res: Response) => {
     });
     res.json({ data: examCreated });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -52,7 +50,6 @@ export const updateExam = async (req: Request, res: Response) => {
     });
     res.json({ data: examUpdated });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };
@@ -67,7 +64,6 @@ export const deleteExam = async (req: Request, res: Response) => {
     });
     res.json({ data: examDeleted });
   } catch (e) {
-    console.error(e);
     res.json({ error: e.message });
   }
 };

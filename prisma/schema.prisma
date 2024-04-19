@@ -23,10 +23,11 @@ model User {
 
 model Subject {
   id String @id @default(uuid())
+  createAt DateTime @default(now())
 
   code        Int    @unique
   name        String @unique
-  description String
+  description String?
 
   exams Exam[]
 }
@@ -39,9 +40,10 @@ enum EXAM_TYPES {
 
 model Exam {
   id String @id @default(uuid())
+  createAt DateTime @default(now())
 
   title       String
-  description String
+  description String?
   type        EXAM_TYPES @default(PARTIAL)
 
   subject   Subject @relation(fields: [subjectId], references: [id])
@@ -52,9 +54,11 @@ model Exam {
 
 model Question {
   id String @id @default(uuid())
+  createAt DateTime @default(now())
 
   title  String
-  answes String
+  answer String
+  order Int @unique
 
   exam   Exam   @relation(fields: [examId], references: [id])
   examId String
