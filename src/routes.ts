@@ -14,6 +14,13 @@ import {
   updateExam,
   deleteExam,
 } from './handlers/exam';
+import {
+  getAllQuestions,
+  getOneQuestion,
+  createQuestion,
+  updateQuestion,
+  deleteQuestion,
+} from './handlers/question';
 
 const router = Router();
 
@@ -28,5 +35,11 @@ router.get('/exam/:id', getOneExam);
 router.post('/exam', createExam);
 router.put('/exam/:id', updateExam);
 router.delete('/exam/:id', deleteExam);
+
+router.get('/question', getAllQuestions);
+router.get('/exam/:id', getOneQuestion);
+router.post('/question', createQuestion);
+router.put('/question/:id', updateQuestion);
+router.delete('/question/:id', deleteQuestion);
 
 export default router;
