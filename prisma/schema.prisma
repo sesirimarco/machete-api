@@ -12,3 +12,50 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id       String   @id @default(uuid())
+  createAt DateTime @default(now())
+
+  username String @db.VarChar(100)
+  password String @db.VarChar(100)
+}
+
+model Subject {
+  id String @id @default(uuid())
+
+  code        Int
+  name        String
+  description String
+
+  exams Exam[]
+}
+
+enum EXAM_TYPES {
+  PARTIAL
+  FINAL
+  MAKE_UP_EXAM
+}
+
+model Exam {
+  id String @id @default(uuid())
+
+  title       String
+  description String
+  type        EXAM_TYPES @default(PARTIAL)
+
+  subject   Subject @relation(fields: [subjectId], references: [id])
+  subjectId String
+
+  Question Question[]
+}
+
+model Question {
+  id String @id @default(uuid())
+
+  title  String
+  answes String
+
+  exam   Exam   @relation(fields: [examId], references: [id])
+  examId String
+}
